@@ -16,17 +16,18 @@ public class Site implements Parcelable {
     private String time;
     private int PicResourse;
     private Point coords;
+    private boolean flag;
 
 
 
 
 
-    public Site(String name, String description, int PicResource, double latitude, double longtitude, String time) {
+    public Site(String name, String description, double latitude, double longtitude) {
         this.name = name;
         this.description = description;
-        this.time = time;
-        this.PicResourse = PicResource;
+        this.PicResourse = R.drawable.nopic;
         this.coords = new Point(latitude, longtitude);
+        flag = false;
     }
 
     public Site(String name, String description, int PicResource, double latitude, double longtitude) {
@@ -35,6 +36,7 @@ public class Site implements Parcelable {
         this.time = "";
         this.PicResourse = PicResource;
         this.coords = new Point(latitude, longtitude);
+        flag = false;
     }
 
 
@@ -50,8 +52,13 @@ public class Site implements Parcelable {
     public int getPicResourse() {
         return PicResourse;
     }
+    public void setCheck(boolean check){
+        flag = check;
+    }
 
-
+    public boolean isFlag() {
+        return flag;
+    }
 
     public String getTime() {
         return time;
